@@ -14,7 +14,7 @@ bin_probability(success, trials, prob)
 \item{prob}{an integer of the probability of success for one trial}
 }
 \value{
-an integer, the probability of getting the specified number of successes within given trials assuming the give probability of success
+a double, the probability of getting the specified number of successes within given trials assuming the give probability of success
 }
 \description{
 A function to calculate the probability of getting k successes in n trials given p probability.
