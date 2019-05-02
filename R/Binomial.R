@@ -1,5 +1,11 @@
+#' @import ggplot2
 
+#Private Checker Functions:
+#Check_prob makes sure a given probability is valid
 check_prob <- function(prob) {
+  if (length(prob) > 1){
+    stop ("The probability must be a single number")
+  }
   if (prob <= 1 & prob >= 0){
     return (TRUE)
   }
@@ -8,7 +14,11 @@ check_prob <- function(prob) {
   }
 }
 
+#Check_trials makes sure a given trials is valid
 check_trials <- function(trials) {
+  if (length(trials) > 1){
+    stop("The number of trials must be a single integer")
+  }
   if (is.numeric(trials) & trials > 0) {
     return (TRUE)
   }
@@ -17,15 +27,18 @@ check_trials <- function(trials) {
   }
 }
 
+#Check_success makes sure a given success is valid
 check_success <- function(success, trials){
   for (i in 1:length(success)) {
     if (success[i] > trials | success[i] < 0){
-      stop ("Invalid success vales: successes must be between 0 and the # of trials")
+      stop ("Invalid success values: successes must be between 0 and the # of trials")
     }
   }
   return (TRUE)
 }
 
+#Private Auxillary Functions
+#All the following aux_* functions calculate that statistical variable
 aux_mean <- function(trials,prob){
   mean <- trials * prob
   return (mean)
@@ -79,7 +92,7 @@ bin_choose <- function(n,k){
 #' @param trials an integer, the number of trials
 #' @param success an integer or vector of numbers, the value of successes
 #' @param prob an integer of the probability of success for one trial
-#' @return an integer, the probability of getting the specified number of successes within given trials assuming the give probability of success
+#' @return a double, the probability of getting the specified number of successes within given trials assuming the give probability of success
 #' @examples
 #' bin_probability(4,7,0.5)
 #' @export
@@ -101,6 +114,8 @@ bin_probability <- function(success,trials,prob) {
 #' bin_distribution(10,0.5)
 #' @export
 bin_distribution <- function(trials,prob){
+  check_trials(trials)
+  check_prob(prob)
   data_export <- data.frame(successes = 0:trials, prob = rep(0,trials+1))
   for (i in 0:trials) {
     data_export$prob[i+1] = bin_probability(i,trials,prob)
@@ -111,7 +126,7 @@ bin_distribution <- function(trials,prob){
 
 #' @export
 plot.bindis <- function(chart){
-  ggplot(chart, aes(su?ccesses,prob))+geom_bar(stat="identity") +
+  ggplot(chart, aes(successes,prob))+geom_bar(stat="identity") +
   ggtitle("Distribution of Successes") +
   scale_x_continuous(name = "# of Successes", breaks = 0:length(chart$successes)) +
   scale_y_continuous(name = "Probability of Achieving X successes") +
