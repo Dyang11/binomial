@@ -101,7 +101,7 @@ These functions can be used to model coin flips, for example.
 
 `bin_choose(trials, successes)` provides the number of permutations to obtain the specific number of successes in the given amount of trials.
 
-```{r}
+```r
 bin_choose(10,6)
 #This means there are 210 different ways to obtain 6 successes in 10 trials
 ```
@@ -130,7 +130,6 @@ Finally, the two following functions provide a visualization method for binomial
 
 ```{r}
 #This function call provides the likelihood of seeing 0, 1, 2, 3, or 4 heads in 4 coin tosses.
-
 bin_distribution(4,0.5)
 ```
 An easier way to see this data is with a frequency histogram, which can be obtaining by calling `plot(bin_distribution(trials,probability))`
@@ -144,13 +143,12 @@ plot(bin_distribution(4,0.5))
 
 ```{r}
 #This function call provides the likelihood of seeing 0, 1, 2, 3, or 4 heads in 4 coin tosses, along with the cumulative probability.
-
 bin_cumulative(4,0.5)
 ```
 
 Finally, the cumulative probability can be visualized by `plot(bin_cumulative(trials,probability))`
 
-```{R}
+```{r}
 plot(bin_cumulative(10,0.5))
 #We see that most iterations of 10 coin flips will have less than 8 "heads"; the cumulative probability that we get less than 8 heads is above 90%
 ```

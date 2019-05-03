@@ -180,7 +180,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3>Bin_choose</h3>
 <p><code>bin_choose(trials, successes)</code> provides the number of permutations to obtain the specific number of successes in the given amount of trials.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">bin_choose</span>(<span class="dv">10</span>,<span class="dv">6</span>)
-<span class="co">#&gt; [1] 210</span>
 <span class="co">#This means there are 210 different ways to obtain 6 successes in 10 trials</span></code></pre></div>
 </div>
 <div id="bin_probability" class="section level3">
@@ -206,7 +205,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3>Visualize likelihood distributions with bin_distribution and bin_cumulative</h3>
 <p><code>bin_distirbution(trials,probability)</code> returns a data frame with how likely it is to obtiain each possible success number in <em>n</em> trials.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#This function call provides the likelihood of seeing 0, 1, 2, 3, or 4 heads in 4 coin tosses.</span>
-
 <span class="kw">bin_distribution</span>(<span class="dv">4</span>,<span class="fl">0.5</span>)
 <span class="co">#&gt;   successes   prob</span>
 <span class="co">#&gt; 1         0 0.0625</span>
@@ -220,7 +218,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Here, we see that flipping 2 heads is the most likely option in 4 coin tosses.</span></code></pre></div>
 <p><code>bin_cumulative(trials,probability)</code> provides additional information about the cumulative probability</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#This function call provides the likelihood of seeing 0, 1, 2, 3, or 4 heads in 4 coin tosses, along with the cumulative probability.</span>
-
 <span class="kw">bin_cumulative</span>(<span class="dv">4</span>,<span class="fl">0.5</span>)
 <span class="co">#&gt;   successes   prob cumulative</span>
 <span class="co">#&gt; 1         0 0.0625     0.0625</span>
