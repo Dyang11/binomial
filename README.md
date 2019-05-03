@@ -1,1 +1,1 @@
-# binomial
+# binomial package
