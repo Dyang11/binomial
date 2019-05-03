@@ -4,7 +4,7 @@ author: "Daniel Yang"
 date: "5/1/2019"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Binomial_tutorial}
+  %\VignetteIndexEntry{Binomial}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
