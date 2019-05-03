@@ -1,0 +1,84 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Binomial
+
+##Overview: 
+
+The _Binomial_ pacakge provides functions to calculate and visualize binomial distirbutions.
+
+A binomial distritbution can be generated with: 
+
+* _n_ trials 
+* _p_ probability
+
+Basic summary functions calculate statistics of a generated binomial distribution:
+
+* `bin_mean(trials,probability)` 
+* `bin_variance(n,p)`
+* `bin_mode(n,p)`
+* `bin_skewness(n,p)`
+* `bin_kurtosis(n,p)`
+
+More complex summary funtions calculate the binomial distribution and the probability of successes:
+
+* `bin_variable(trials,probability)`
+* `bin_choose(trials,successes)`
+* `bin_probability(success,trials,probability)`
+* `bin_distribution(trials,probability)`
+* `bin_cumulative(trials,probability)`
+
+To learn about these functions, read the vignette provided or call `?bin_variable`.
+
+##Installation:
+
+Install the development version from GitHub via the package `"devtools"`:
+
+```r
+# Load helper detools:
+install.packages("devtools") 
+# To load Binomial (without vignettes):
+devtools::install_github("Dyang11/binomial")
+```
+
+To learn about the functions, install Binomail with vignettes:
+
+```r
+devtools::install_github("Dyang11/binomial", build_vignettes = TRUE)
+```
+
+##Usage:
+
+Let us supposed we are simulating 10 coin tosses, where a "success" is a heads flip. 
+
+```{r message=FALSE,warning = FALSE}
+library(Binomial)
+
+#Set variable amounts
+trials <- 10
+probability <- 0.5
+
+bin_mean(trials,probability)
+
+bin_variable(trials,probability)
+
+summary(bin_variable(trials,probability))
+
+bin_distribution(trials,probability)
+
+plot(bin_distribution(trials,probability))
+
+bin_cumulative(trials,probability)
+
+plot(bin_cumulative(trials,probability))
+```
+
+---
+Created by Daniel Yang for Stat 133, Spring 2019. 05/03/19
