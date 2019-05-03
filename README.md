@@ -138,3 +138,7 @@ plot(bin_cumulative(trials,probability))
 ```
 
 ![](README_files/figure-markdown_github/unnamed-chunk-1-2.png)
+
+------------------------------------------------------------------------
+
+Created by Daniel Yang for Stat 133, Spring 2019. 05/03/19
