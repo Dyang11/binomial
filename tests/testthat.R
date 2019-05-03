@@ -1,6 +1,6 @@
 #Load necessary libraries
 library(testthat)
-library(binomial)
+library(Binomial)
 #Run tests on binomial package
-test_check(binomial)
+test_check(Binomial)
 
